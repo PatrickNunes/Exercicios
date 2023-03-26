@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Exercicio 2</h1>
+    <hr>
+    <div class="mb-3">
+        <label for="num" class="form-label">Digite um Numero</label>
+        <input type="number" class="form-control" id="num">
+    </div>
+
+    <div>
+        <button type="button" class="btn btn-primary" id="botao">Verificar</button>
+    </div>
+
+    <div class="mt-5">
+        <p id="resposta"></p>
+    </div>
+</div>
+
+</body>
+<script>
+
+    function veryfyFibonatti(num){
+        let sequencia =0,atual=1,anterior=0; 
+
+        if(num == 0){
+            return true;
+        }
+
+        while(sequencia <=num){
+           
+
+            sequencia = atual + anterior
+
+            anterior = atual
+            atual = sequencia
+
+            if(sequencia == num){
+                return true
+            }
+        }
+        return false
+    }
+
+    const button = document.querySelector("#botao") 
+
+    button.addEventListener('click',()=>{
+        const value = document.querySelector("#num").value
+        const resp = document.querySelector('#resposta')
+
+        if(value){
+            
+            if(veryfyFibonatti(value)){
+                resp.innerHTML = `O numero ${value} esta na sequencia de Fibonacci`
+            }
+            else{
+                resp.innerHTML = `O numero ${value} não pertence a sequencia de Fibonacci`
+            }
+        }
+        else{
+            resp.innerHTML = '<b>Digite um numero<b>'
+        }
+    });
+    
+    
+    
+</script>
+
+</html>
